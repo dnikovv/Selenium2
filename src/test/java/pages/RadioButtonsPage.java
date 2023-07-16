@@ -6,9 +6,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.WebElementHelper;
 
 public class RadioButtonsPage {
     public WebDriver driver;
+
+    private WebElementHelper customWebElement;
 
     public RadioButtonsPage(WebDriver driver) {
         this.driver = driver;
@@ -23,11 +26,13 @@ public class RadioButtonsPage {
     WebElement outputSpan;
 
     public void clickYesRadioBtn() {
-        yesRadioBtn.click();
+        customWebElement = new WebElementHelper(yesRadioBtn,driver);
+        customWebElement.clickWithWait(2);
     }
 
     public void clickImpressiveRadioBtn() {
-        impressiveRadioBtn.click();
+        customWebElement = new WebElementHelper(impressiveRadioBtn,driver);
+        customWebElement.clickWithWait(2);
     }
 
     public String getOutputValue() {

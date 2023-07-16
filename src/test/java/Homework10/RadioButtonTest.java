@@ -20,12 +20,13 @@ public class RadioButtonTest extends BaseClass {
     }
 
     @Test
-    public void checkTheImpressiveRadioBtn() {
+    public void checkTheImpressiveRadioBtn() throws InterruptedException {
         RadioButtonsPage radioButton = new RadioButtonsPage(driver);
         driver.get(radioBtnUrl);
         radioButton.clickImpressiveRadioBtn();
         String actualResult = radioButton.getOutputValue();
         String expectedResult = "Impressive";
+        driver.slowdownBetweenSteps(2);
         Assert.assertEquals(actualResult, expectedResult);
     }
 

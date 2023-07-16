@@ -1,10 +1,7 @@
 package utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -110,6 +107,15 @@ public void start(Browser browser){
     @Override
     public Options manage() {
         return webDriver.manage();
+    }
+
+    public void slowdownBetweenSteps(int delayInSeconds) {
+        try {
+            WebDriverWait wait = new WebDriverWait(webDriver, delayInSeconds);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//dummyElement")));
+        } catch (TimeoutException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @Override
