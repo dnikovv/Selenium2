@@ -14,6 +14,7 @@ public class RadioButtonTest extends BaseClass {
         RadioButtonsPage radioButton = new RadioButtonsPage(driver);
         driver.get(radioBtnUrl);
         radioButton.clickYesRadioBtn();
+        driver.slowdownBetweenSteps(2);
         String actualResult = radioButton.getOutputValue();
         String expectedResult = "Yes";
         Assert.assertEquals(actualResult, expectedResult);

@@ -36,7 +36,8 @@ public class RadioButtonsPage {
     }
 
     public String getOutputValue() {
-        return outputSpan.getText();
+        customWebElement = new WebElementHelper(outputSpan,driver);
+        return customWebElement.getTextWithWait(2);
     }
 
     public WebElement noRadioBtn(){
