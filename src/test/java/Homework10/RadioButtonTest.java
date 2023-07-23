@@ -21,7 +21,7 @@ public class RadioButtonTest extends BaseClass {
     }
 
     @Test
-    public void checkTheImpressiveRadioBtn() throws InterruptedException {
+    public void checkTheImpressiveRadioBtn() {
         RadioButtonsPage radioButton = new RadioButtonsPage(driver);
         driver.get(radioBtnUrl);
         radioButton.clickImpressiveRadioBtn();
@@ -32,10 +32,10 @@ public class RadioButtonTest extends BaseClass {
     }
 
     @Test
-    public void verifyNoRadioBtnIsNotClickable() throws InterruptedException {
+    public void verifyNoRadioBtnIsNotClickable() {
         RadioButtonsPage radioButton = new RadioButtonsPage(driver);
         driver.get(radioBtnUrl);
-        Thread.sleep(2000);
+        driver.slowdownBetweenSteps(2);
         Assert.assertFalse("The checkbox is disabled and not clickable", radioButton.noRadioBtn().isEnabled());
     }
 }

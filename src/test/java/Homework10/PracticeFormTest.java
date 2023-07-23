@@ -13,7 +13,7 @@ public class PracticeFormTest extends BaseClass {
     String url = "https://demoqa.com/automation-practice-form";
 
     @Test
-    public void fillFormWithWrongEmailFormat() throws InterruptedException {
+    public void fillFormWithWrongEmailFormat() {
         PracticeFormPage formPage = new PracticeFormPage(driver);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         driver.get(url);
@@ -29,13 +29,13 @@ public class PracticeFormTest extends BaseClass {
         formPage.uploadFile("D:/images/bohorainbow.jpg");
         formPage.setCurrentAddress("Sofia, Lagera");
         formPage.clickSubmitBtn();
-        Thread.sleep(3000);
+        driver.slowdownBetweenSteps(2);
         Assert.assertTrue("The input field is not highlighted in red.", isHighlightedRed);
         //cannot get the color of the border..
     }
 
     @Test
-    public void fillForm() throws InterruptedException {
+    public void fillForm() {
         PracticeFormPage formPage = new PracticeFormPage(driver);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         driver.get(url);

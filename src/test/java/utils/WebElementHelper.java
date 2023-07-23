@@ -39,7 +39,7 @@ public class WebElementHelper {
         element.sendKeys(text);
     }
 
-    public void scrollToElement() {
+    public void scrollToElement(WebElement element) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
         //bring the element into view
     }
