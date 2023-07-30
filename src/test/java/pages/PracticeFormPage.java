@@ -47,17 +47,17 @@ public class PracticeFormPage {
 
     public void setFirstName(String fName) {
         customWebElement = new WebElementHelper(firstName,driver);
-        customWebElement.typeText(fName);
+        customWebElement.typeText(fName,2);
     }
 
     public void setLastName(String lName) {
         customWebElement = new WebElementHelper(lastName,driver);
-        customWebElement.typeText(lName);
+        customWebElement.typeText(lName,2);
     }
 
     public void setMailAddress(String mail) {
         customWebElement = new WebElementHelper(userEmail,driver);
-        customWebElement.typeText(mail);
+        customWebElement.typeText(mail,2);
     }
 
     public void clickGenderBtn() {
@@ -67,7 +67,7 @@ public class PracticeFormPage {
 
     public void enterUserPhone(String phone) {
         customWebElement = new WebElementHelper(userPhone,driver);
-        customWebElement.typeText(phone);
+        customWebElement.typeText(phone,2);
     }
 
     public void enterSubject(String subject) {
@@ -82,7 +82,7 @@ public class PracticeFormPage {
 
     public void setCurrentAddress(String cAddress) {
         customWebElement = new WebElementHelper(currentAddress,driver);
-        customWebElement.typeText(cAddress);
+        customWebElement.typeText(cAddress,2);
     }
 
     public WebElement setState() {
@@ -91,7 +91,7 @@ public class PracticeFormPage {
 
     public void uploadFile(String filepath){
         customWebElement = new WebElementHelper(uploadFileBtn,driver);
-        customWebElement.typeText(filepath);
+        customWebElement.typeText(filepath,2);
     }
 
     public void clickSubmitBtn(){

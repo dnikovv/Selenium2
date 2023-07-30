@@ -10,7 +10,6 @@ public class BaseClass {
     public void testInit(){
     driver = new CustomWebDriver();
     driver.start(CustomWebDriver.Browser.CHROME);
-
     }
 
     @After

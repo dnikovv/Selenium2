@@ -41,6 +41,7 @@ public void start(Browser browser){
     public void get(String url) {
     webDriver.get(url);
     webDriver.manage().window().maximize();
+    //maybe implement some implicit wait here and also delete cookies
     }
 
     @Override

@@ -21,7 +21,7 @@ public class WebElementHelper {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public void waitForInvisibility(int timeoutInSeconds) {
+    public void waitForInvisibility(WebElement element) {
         wait.until(ExpectedConditions.invisibilityOf(element));
     }
 
@@ -34,14 +34,14 @@ public class WebElementHelper {
         element.click();
     }
 
-    public void typeText(String text){
+    public void typeText(String text, int timeoutInSeconds){
+        waitForVisibility(timeoutInSeconds);
         element.clear();
         element.sendKeys(text);
     }
 
     public void scrollToElement(WebElement element) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-        //bring the element into view
     }
 
     public void waitForValueToBe(String expectedValue, int timeoutInSeconds) {
@@ -58,7 +58,8 @@ public class WebElementHelper {
     public String getTextWithWait(int timeoutInSeconds) {
         waitForVisibility(timeoutInSeconds);
         return element.getText();
-        //Get the text of the element after waiting for its visibility
     }
+
+    //check about deleting the cookies
 
 }
