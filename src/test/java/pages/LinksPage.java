@@ -17,12 +17,12 @@ public class LinksPage {
     }
 
     @FindBy(xpath = "//a[@href='http://demoqa.com' and text()='Click Here for Valid Link']")
-    private WebElement validLink;
+    public WebElement validLink;
     @FindBy(xpath = "//a[contains(text(),'Click Here for Broken Link')]")
-    private WebElement brokenLink;
+    public WebElement brokenLink;
 
     public void clickOnValidLink() {
-        customWebElement = new WebElementHelper(validLink,driver);
+        customWebElement = new WebElementHelper(validLink, driver);
         customWebElement.clickWithWait(3);
     }
 
@@ -31,7 +31,13 @@ public class LinksPage {
         customWebElement.clickWithWait(3);
     }
 
-    public WebElement locateBrokenLinks() {
-        return driver.findElement(By.xpath("//a[contains(text(),'Click Here for Broken Link')]"));
+    public void scrollToBrokenLink() {
+        customWebElement = new WebElementHelper(brokenLink, driver);
+        customWebElement.scrollToElement(brokenLink);
+    }
+
+    public void scrollToValidLink() {
+        customWebElement = new WebElementHelper(validLink, driver);
+        customWebElement.scrollToElement(validLink);
     }
 }
