@@ -16,29 +16,26 @@ public class LinksWithoutPageFactory {
 
     public LinksWithoutPageFactory(CustomWebDriver driver) {
         this.driver = driver;
+        customWebElement = new WebElementHelper(driver);
     }
 
     public void clickOnValidLink() {
         WebElement validLink = driver.findElement(VALID_LINK);
-        customWebElement = new WebElementHelper(validLink,driver);
-        customWebElement.clickWithWait(3);
+        customWebElement.clickWithWait(validLink,3);
     }
 
     public void clickOnBrokenLink() {
         WebElement brokenLink = driver.findElement(BROKEN_LINK);
-        customWebElement = new WebElementHelper(brokenLink, driver);
-        customWebElement.clickWithWait(3);
+        customWebElement.clickWithWait(brokenLink,3);
     }
 
     public void scrollToValidLink(){
         WebElement validLink = driver.findElement(VALID_LINK);
-        customWebElement = new WebElementHelper(validLink,driver);
         customWebElement.scrollToElement(validLink);
     }
 
     public void scrollToBrokenLink(){
         WebElement brokenLink = driver.findElement(VALID_LINK);
-        customWebElement = new WebElementHelper(brokenLink,driver);
         customWebElement.scrollToElement(brokenLink);
     }
 

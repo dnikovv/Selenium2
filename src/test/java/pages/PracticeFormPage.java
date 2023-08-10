@@ -43,46 +43,39 @@ public class PracticeFormPage {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 3);
         PageFactory.initElements(driver, this);
+        customWebElement = new WebElementHelper(driver);
     }
 
     public void setFirstName(String fName) {
-        customWebElement = new WebElementHelper(firstName,driver);
-        customWebElement.typeText(fName,2);
+        customWebElement.typeText(firstName,fName,2);
     }
 
     public void setLastName(String lName) {
-        customWebElement = new WebElementHelper(lastName,driver);
-        customWebElement.typeText(lName,2);
+        customWebElement.typeText(lastName,lName,2);
     }
 
     public void setMailAddress(String mail) {
-        customWebElement = new WebElementHelper(userEmail,driver);
-        customWebElement.typeText(mail,2);
+        customWebElement.typeText(userEmail,mail,2);
     }
 
     public void clickGenderBtn() {
-        customWebElement = new WebElementHelper(genderRadioBtn,driver);
-        customWebElement.clickWithWait(3);
+        customWebElement.clickWithWait(genderRadioBtn,3);
     }
 
     public void enterUserPhone(String phone) {
-        customWebElement = new WebElementHelper(userPhone,driver);
-        customWebElement.typeText(phone,2);
+        customWebElement.typeText(userPhone,phone,2);
     }
 
     public void enterSubject(String subject) {
-        customWebElement = new WebElementHelper(subjectField,driver);
-        customWebElement.clickWithWait(3);
+        customWebElement.clickWithWait(subjectField,3);
     }
 
     public void clickSportCheckBox() {
-        customWebElement = new WebElementHelper(sportCheckBox,driver);
-        customWebElement.clickWithWait(3);
+        customWebElement.clickWithWait(sportCheckBox,3);
     }
 
     public void setCurrentAddress(String cAddress) {
-        customWebElement = new WebElementHelper(currentAddress,driver);
-        customWebElement.typeText(cAddress,2);
+        customWebElement.typeText(currentAddress,cAddress,2);
     }
 
     public WebElement setState() {
@@ -90,8 +83,7 @@ public class PracticeFormPage {
     }
 
     public void uploadFile(String filepath){
-        customWebElement = new WebElementHelper(uploadFileBtn,driver);
-        customWebElement.typeText(filepath,2);
+        customWebElement.typeText(uploadFileBtn,filepath,2);
     }
 
     public void clickSubmitBtn(){

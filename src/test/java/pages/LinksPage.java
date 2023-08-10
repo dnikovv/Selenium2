@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,6 +13,7 @@ public class LinksPage {
     public LinksPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+        customWebElement = new WebElementHelper(driver);
     }
 
     @FindBy(xpath = "//a[@href='http://demoqa.com' and text()='Click Here for Valid Link']")
@@ -22,22 +22,18 @@ public class LinksPage {
     public WebElement brokenLink;
 
     public void clickOnValidLink() {
-        customWebElement = new WebElementHelper(validLink, driver);
-        customWebElement.clickWithWait(3);
+        customWebElement.clickWithWait(validLink, 3);
     }
 
     public void clickOnBrokenLink() {
-        customWebElement = new WebElementHelper(brokenLink, driver);
-        customWebElement.clickWithWait(3);
+        customWebElement.clickWithWait(brokenLink, 3);
     }
 
     public void scrollToBrokenLink() {
-        customWebElement = new WebElementHelper(brokenLink, driver);
         customWebElement.scrollToElement(brokenLink);
     }
 
     public void scrollToValidLink() {
-        customWebElement = new WebElementHelper(validLink, driver);
         customWebElement.scrollToElement(validLink);
     }
 }

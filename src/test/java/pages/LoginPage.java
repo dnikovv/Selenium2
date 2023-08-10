@@ -13,6 +13,7 @@ public class LoginPage {
     public LoginPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+        customWebElement = new WebElementHelper(driver);
     }
 
     @FindBy(id = "userName")
@@ -28,29 +29,24 @@ public class LoginPage {
 
 
     public void setUserName(String userName) {
-        customWebElement = new WebElementHelper(userNameField, driver);
-        customWebElement.typeText(userName, 2);
+        customWebElement.typeText(userNameField,userName, 2);
     }
 
     public void setPassword(String pass) {
-        customWebElement = new WebElementHelper(passwordField, driver);
-        customWebElement.typeText(pass, 2);
+        customWebElement.typeText(passwordField,pass, 2);
     }
 
     public void clickLoginButton(){
-        customWebElement = new WebElementHelper(loginButton, driver);
         customWebElement.scrollToElement(loginButton);
-        customWebElement.clickWithWait(1);
+        customWebElement.clickWithWait(loginButton,1);
     }
 
     public void clickNewUserButton(){
-        customWebElement = new WebElementHelper(newuserButton,driver);
-        customWebElement.clickWithWait(2);
+        customWebElement.clickWithWait(newuserButton,2);
     }
     public String getLoginErrorMessageText() {
-        customWebElement = new WebElementHelper(loginErrorMessage, driver);
         customWebElement.scrollToElement(loginErrorMessage);
-        return customWebElement.getTextWithWait(1);
+        return customWebElement.getTextWithWait(loginErrorMessage,1);
     }
 
 }

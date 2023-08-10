@@ -16,6 +16,7 @@ public class RadioButtonsPage {
     public RadioButtonsPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+        customWebElement = new WebElementHelper(driver);
     }
 
     @FindBy(xpath = "//label[@for = 'yesRadio']")
@@ -26,18 +27,15 @@ public class RadioButtonsPage {
     WebElement outputSpan;
 
     public void clickYesRadioBtn() {
-        customWebElement = new WebElementHelper(yesRadioBtn,driver);
-        customWebElement.clickWithWait(2);
+        customWebElement.clickWithWait(yesRadioBtn,2);
     }
 
     public void clickImpressiveRadioBtn() {
-        customWebElement = new WebElementHelper(impressiveRadioBtn,driver);
-        customWebElement.clickWithWait(2);
+        customWebElement.clickWithWait(impressiveRadioBtn,2);
     }
 
     public String getOutputValue() {
-        customWebElement = new WebElementHelper(outputSpan,driver);
-        return customWebElement.getTextWithWait(2);
+        return customWebElement.getTextWithWait(outputSpan,2);
     }
 
     public WebElement noRadioBtn(){

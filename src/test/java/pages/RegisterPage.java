@@ -17,6 +17,7 @@ public class RegisterPage {
     public RegisterPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+        customWebElement = new WebElementHelper(driver);
     }
 
     @FindBy(id = "firstname")
@@ -38,43 +39,36 @@ public class RegisterPage {
     private WebElement captchaIframe;
 
     public void setFirstName(String firstName) {
-        customWebElement = new WebElementHelper(firstNameField, driver);
-        customWebElement.typeText(firstName, 2);
+        customWebElement.typeText(firstNameField,firstName, 2);
     }
 
     public void setLastName(String lastName) {
-        customWebElement = new WebElementHelper(lastNameField, driver);
-        customWebElement.typeText(lastName, 2);
+        customWebElement.typeText(lastNameField,lastName, 2);
     }
 
     public void setUserName(String userName) {
-        customWebElement = new WebElementHelper(userNameField, driver);
-        customWebElement.typeText(userName, 2);
+        customWebElement.typeText(userNameField,userName, 2);
     }
 
     public void setPassword(String password) {
-        customWebElement = new WebElementHelper(passwordField, driver);
-        customWebElement.typeText(password, 2);
+        customWebElement.typeText(passwordField,password, 2);
     }
 
     public void clickRegisterButton() {
-        customWebElement = new WebElementHelper(registerButton, driver);
         customWebElement.scrollToElement(registerButton);
-        customWebElement.clickWithWait(1);
+        customWebElement.clickWithWait(registerButton,1);
     }
 
     public String getErrorMessageText() {
-        customWebElement = new WebElementHelper(errorMessage, driver);
         customWebElement.scrollToElement(errorMessage);
-        return customWebElement.getTextWithWait(1);
+        return customWebElement.getTextWithWait(errorMessage,1);
     }
 
     public void selectCaptcha() {
-        customWebElement = new WebElementHelper(captchaElement, driver);
         driver.switchTo().frame(captchaIframe);
         customWebElement.scrollToElement(captchaElement);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", captchaElement);
         driver.switchTo().defaultContent();
-        customWebElement.waitForInvisibility(captchaElement);
+        customWebElement.waitForInvisibility(captchaElement,2);
     }
 }
