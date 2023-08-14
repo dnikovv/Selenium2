@@ -43,5 +43,4 @@ public class LoginTest extends BaseClass {
         String currentUrl = driver.getCurrentUrl();
         Assert.assertTrue(currentUrl.contains("register"));
     }
-
 }
